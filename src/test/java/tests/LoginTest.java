@@ -23,4 +23,17 @@ public class LoginTest extends BaseTests {
                 "Login was not successful."
         );
     }
+
+    @Test
+    public void invalidLoginTest() {
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.open(ConfigReader.getProperty("baseUrl"));
+        loginPage.login("wrongUser", "wrongPass");
+
+        Assertions.assertTrue(
+                loginPage.getSuccessMessage().contains("Your username is invalid!"),
+                "Error message was not displayed as expected."
+        );
+    }
 }
