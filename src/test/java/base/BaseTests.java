@@ -3,6 +3,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import utils.ScreenshotUtil;
+import org.junit.jupiter.api.TestInfo;
 
 import java.time.Duration;
 
@@ -18,8 +20,9 @@ public class BaseTests {
     }
 
     @AfterEach
-    public void tearDown() {
+    public void tearDown(TestInfo testInfo) {
         if (driver != null) {
+            ScreenshotUtil.takeScreenshot(driver, testInfo.getDisplayName());
             driver.quit();
         }
     }
