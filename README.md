@@ -1,4 +1,5 @@
-# Selenium Java Automation Framework
+## GitHub Repository
+[View Project](https://github.com/yourusername/your-repo)# Selenium Java Automation Framework
 
 ## Overview
 This project is a basic test automation framework built using:
@@ -12,12 +13,13 @@ The framework follows the Page Object Model (POM) design pattern and supports re
 
 ---
 
-## Features
-- Base test setup with WebDriver initialization and teardown
-- Page Object Model for UI interactions
+## Key Features
+- Page Object Model (POM) design pattern
+- Reusable BaseTest and BasePage classes
 - External configuration using properties file
 - Positive and negative test scenarios
-- Maven dependency management
+- Explicit waits for improved test stability
+- Automatic screenshot capture after test execution
 
 ---
 
@@ -57,3 +59,12 @@ This project demonstrates core automation framework design concepts such as:
 - Encapsulation
 - Abstraction
 - Reusability
+
+---
+
+## Future Improvements
+- Add logging framework (e.g., SLF4J)
+- Implement reporting (e.g., Allure or Extent Reports)
+- Add cross-browser testing support
+- Integrate with CI/CD pipeline
+- Rebuild framework using Playwright
