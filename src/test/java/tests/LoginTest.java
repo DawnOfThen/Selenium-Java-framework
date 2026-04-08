@@ -36,4 +36,21 @@ public class LoginTest extends BaseTests {
                 "Error message was not displayed as expected."
         );
     }
+    @Test
+    public void logoutTest() {
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.open(ConfigReader.getProperty("baseUrl"));
+        loginPage.login(
+                ConfigReader.getProperty("username"),
+                ConfigReader.getProperty("password")
+        );
+
+        loginPage.clickLogout();
+
+        Assertions.assertTrue(
+                loginPage.getSuccessMessage().contains("You logged out of the secure area!"),
+                "Logout was not successful."
+        );
+    }
 }

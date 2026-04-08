@@ -39,4 +39,10 @@ public class LoginPage extends BasePage {
         enterPassword(password);
         clickLogin();
     }
+
+    private final By logoutButton = By.cssSelector("a.button.secondary.radius");
+
+    public void clickLogout() {
+        wait.until(driver -> driver.findElement(logoutButton)).click();
+    }
 }
