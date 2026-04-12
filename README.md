@@ -50,6 +50,47 @@ config.properties
 mvn test
 
 
+### Run using Docker
+docker build -t selenium-tests .
+docker run selenium-tests
+
+
+---
+### CI/CD Integration
+
+Tests are automatically executed using GitHub Actions on every push.
+
+Pipeline:
+
+Build Docker image
+Run Selenium tests inside container
+Collect Allure results
+Upload results as artifacts
+
+
+---
+### Test Reporting
+
+Allure is used to generate test results.
+
+Results are stored in allure-results
+Uploaded as artifacts in GitHub Actions
+
+
+---
+Key Challenges Solved
+Fixed headless Chrome issues in CI environments
+Ensured cross-platform consistency using Docker
+Resolved environment mismatch between local and CI
+Implemented artifact-based reporting in pipeline
+
+
+---
+### Future Improvements
+Add API testing (REST Assured)
+Parallel test execution
+Deploy Allure reports for visualization
+Add cross-browser testing
 
 ---
 
