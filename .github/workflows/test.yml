@@ -1,4 +1,4 @@
-name: Run Selenium Tests
+name: Run Selenium Tests in Docker
 
 on: [push]
 
@@ -13,18 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Set up Java
-        uses: actions/setup-java@v5
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-          cache: 'maven'
+      - name: Build Docker image
+        run: docker build -t selenium-tests .
 
-      - name: Set up Chrome
-        uses: browser-actions/setup-chrome@v1
+      - name: Run tests in Docker
+        run: docker run --name selenium-container selenium-tests
 
-      - name: Run tests
-        run: mvn test
+      - name: Copy Allure results from container
+        if: always()
+        run: |
+          docker cp selenium-container:/app/allure-results ./allure-results || true
 
       - name: Upload Allure results
         if: always()
