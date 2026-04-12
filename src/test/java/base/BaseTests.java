@@ -34,7 +34,7 @@ public class BaseTests {
     @AfterEach
     public void tearDown(TestInfo testInfo) {
         if (driver != null) {
-            ScreenshotUtil.takeScreenshot(driver, testInfo.getDisplayName());
+            ScreenshotUtil.takeScreenshot(driver);
             driver.quit();
         }
     }
